@@ -19,3 +19,11 @@ func make_tiles():
 		var h = min_size + randi() % (max_size - min_size)
 		r.make_tile(pos, Vector2(w,h) * map_size)
 		$Tiles.add_child(r)
+		
+func _draw():
+	for tile in $Tiles.get_children():
+		draw_rect(Rect2(tile.position - tile.size, tile.size * 2),
+					Color(0, 1, 0), false)
+
+func _process(delta):
+	update()
